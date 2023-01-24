@@ -1,0 +1,19 @@
+.listStyles li a {
+  color: white;
+  display: inline-flex;
+  margin: 0px 30px;
+  font-size: 16px;
+}
+.listStyles {
+  display: flex;
+  align-items: center;
+}
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navContainer img {
+  width: 140px;
+  height: 50px;
+}
