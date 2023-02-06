@@ -1,13 +1,13 @@
 import React from 'react';
 import sectionStyles from './section.module.css';
-import Images from '../../images/unsplash_oGmf8o53LeE.png';
+import Images from '../../public/images/unsplash_oGmf8o53LeE.png';
 import Image from 'next/image';
-import Image1 from '../../images/unsplash_2d4lAQAlbDA.png';
-import Image2 from '../../images/unsplash_Eh_It1hg4Hs.png';
-import Image3 from '../../images/unsplash_KQgrVfR3r74.png';
-import Image4 from '../../images/unsplash_T6d96Qrb5MY.png';
-import Image5 from '../../images/unsplash_uDtC-1NLEzU.png';
-import Image6 from '../../images/unsplash_UV81E0oXXWQ.png';
+import Image1 from '../../public/images/unsplash_2d4lAQAlbDA.png';
+import Image2 from '../../public/images/unsplash_Eh_It1hg4Hs.png';
+import Image3 from '../../public/images/unsplash_KQgrVfR3r74.png';
+import Image4 from '../../public/images/unsplash_T6d96Qrb5MY.png';
+import Image5 from '../../public/images/unsplash_uDtC-1NLEzU.png';
+import Image6 from '../../public/images/unsplash_UV81E0oXXWQ.png';
 
 export const Section = () => {
   const properties = [

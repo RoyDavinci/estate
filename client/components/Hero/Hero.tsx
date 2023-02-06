@@ -1,7 +1,7 @@
 import React from 'react';
 import {Header} from '../Header/Header';
 import styles from './hero.module.css';
-import Map from '../../images/Rectangle 1.png';
+import Map from '../../public/images/Rectangle 1.png';
 import Image from 'next/image';
 
 export const Hero = () => {

@@ -1,0 +1,65 @@
+.container {
+  margin: 20px 0px;
+}
+.image {
+  width: auto;
+  height: auto;
+}
+.grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.grid div img {
+  margin-right: 20px;
+}
+.sectionContiner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+.link {
+  width: 185px;
+  height: 63px;
+  background-color: #f4511e;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+.link a {
+  color: #fff;
+}
+.imageContainer {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+}
+.secondSection {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  margin: 30px 0px;
+}
+.secondSection article,
+.secondSection .imageContainer {
+  flex: 1;
+}
+.secondSection article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+.divSecondSection .divContainer,
+.paraContainer {
+  margin-left: 150px;
+}
+.userImg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}

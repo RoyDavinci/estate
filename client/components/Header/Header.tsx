@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Logo from '../../images/logo 1.png';
+import Logo from '../../public/images/logo 1.png';
 import styles from './header.module.css';
 import Link from 'next/link';
 import {useState} from 'react';
