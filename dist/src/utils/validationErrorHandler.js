@@ -12,7 +12,7 @@ const validationErrorHandler = (req, res, next) => {
     if (!errors.isEmpty())
         return res.status(httpCodes_1.default.BAD_REQUEST).json({
             success: false,
-            message: "validation error",
+            message: 'validation error',
             data: (0, validationErrorFormater_1.validatorErrorFormater)(errors.array()),
         });
     return next();

@@ -9,15 +9,21 @@ module.exports = {
     ],
     parserOptions: {
         parser: '@typescript-eslint/parser',
-        project: './tsconfig.json',
+        project: null,
         sourceType: 'module',
     },
     parser: '@typescript-eslint/parser',
     plugins: ['@typescript-eslint', 'prettier'],
+    overrides: [
+        {
+            files: ['bin/*.js', 'lib/*.js'],
+            excludedFiles: '*.test.js',
+            rules: {
+                quotes: ['error', 'single'],
+            },
+        },
+    ],
     rules: {
-        // for example, the rule below mean that this rule requires an empty line
-        // before return statements to increase code clarity, except when the
-        // return is alone inside a statement group (such as an if statement).
         'newline-before-return': 'error',
         '@typescript-eslint/no-var-requires': 0,
         'import/no-import-module-exports': 'off',

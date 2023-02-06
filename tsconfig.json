@@ -9,7 +9,8 @@
     "noImplicitAny": true,
     "strict": true,
     "resolveJsonModule": true,
-    "allowJs": true
+    "allowJs": true,
+    "jsx": "react-jsx"
   },
   "include": ["src", ".eslintrc.js", "source-path/**/*.json", "client"],
   "exclude": ["node_modules", "dist"]
