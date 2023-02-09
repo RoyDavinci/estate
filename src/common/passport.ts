@@ -1,9 +1,8 @@
-import passport, {PassportStatic} from 'passport';
+import {PassportStatic} from 'passport';
 import passportLocal from 'passport-local';
 import passportJwt from 'passport-jwt';
-import {prisma} from '../db/prisma';
 import bcrypt from 'bcryptjs';
-import {users} from '@prisma/client';
+import {prisma} from '../db/prisma';
 
 const options = {
   jwtFromRequest: passportJwt.ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -17,6 +16,7 @@ export const passportService = (passport: PassportStatic) => {
         where: {user_id: Number(payload.id)},
       });
       if (!user) return done(null, false, {message: 'user does not exist'});
+
       return done(null, user, {message: 'user authenticated'});
     }),
   );
@@ -30,7 +30,7 @@ export const passportService = (passport: PassportStatic) => {
       async (email, password, done) => {
         try {
           const user = await prisma.users.findUnique({
-            where: {email: email},
+            where: {email},
           });
           if (!user)
             return done(null, false, {
@@ -41,6 +41,10 @@ export const passportService = (passport: PassportStatic) => {
             return done(null, false, {
               message: `password is incorrect`,
             });
+          if (user.accountStatus === 123456789) {
+            return done(null, false, {message: 'user has been blacklisted'});
+          }
+
           return done(null, user, {message: 'authenticated successfully'});
         } catch (error) {
           return done(error, false, {message: 'Error processing your info'});
@@ -50,7 +54,8 @@ export const passportService = (passport: PassportStatic) => {
   );
 
   passport.serializeUser((user, done) => {
-    const {user_id} = user as unknown as users;
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const {user_id} = user;
     done(null, user_id);
   });
 
@@ -59,6 +64,7 @@ export const passportService = (passport: PassportStatic) => {
       const user = await prisma.users.findUnique({
         where: {user_id: Number(id)},
       });
+
       return done(null, user);
     } catch (error) {
       return done(error, false);

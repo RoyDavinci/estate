@@ -1,7 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
 import sectionStyles from './section.module.css';
 import Images from '../../public/images/unsplash_oGmf8o53LeE.png';
-import Image from 'next/image';
 import Image1 from '../../public/images/unsplash_2d4lAQAlbDA.png';
 import Image2 from '../../public/images/unsplash_Eh_It1hg4Hs.png';
 import Image3 from '../../public/images/unsplash_KQgrVfR3r74.png';
@@ -110,43 +110,43 @@ export const Section = () => {
           <div
             className={
               sectionStyles.section___articleSecondcontainer__div__Second
-            }>
-            {properties.map(item => {
-              return (
-                <div
-                  key={item.id}
-                  className={sectionStyles.section__article__itemContainer}>
-                  <Image src={item.image} alt={item.name} />
-                  <h2 className={sectionStyles.stylingDetails}>{item.name}</h2>
-                  <p className={sectionStyles.stylingDetails}>
-                    {item.description}
-                  </p>
-                  <h2 className={sectionStyles.stylingDetailsPrice}>
-                    {item.price}
-                  </h2>
-                  <div className={sectionStyles.bookmarkContainer}>
-                    <div>
-                      <p>
-                        <i className="fa-solid fa-car"></i>
-                        <span>4</span>
-                      </p>
-                    </div>
-                    <div>
-                      <p>
-                        <i className="fa-regular fa-bookmark"></i>
-                        <span>2</span>
-                      </p>
-                    </div>
-                    <div>
-                      <p>
-                        <i className="fa-regular fa-hashtag"></i>
-                        <span>2</span>
-                      </p>
-                    </div>
+            }
+          >
+            {properties.map(item => (
+              <div
+                key={item.id}
+                className={sectionStyles.section__article__itemContainer}
+              >
+                <Image src={item.image} alt={item.name} />
+                <h2 className={sectionStyles.stylingDetails}>{item.name}</h2>
+                <p className={sectionStyles.stylingDetails}>
+                  {item.description}
+                </p>
+                <h2 className={sectionStyles.stylingDetailsPrice}>
+                  {item.price}
+                </h2>
+                <div className={sectionStyles.bookmarkContainer}>
+                  <div>
+                    <p>
+                      <i className="fa-solid fa-car"></i>
+                      <span>4</span>
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <i className="fa-regular fa-bookmark"></i>
+                      <span>2</span>
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <i className="fa-regular fa-hashtag"></i>
+                      <span>2</span>
+                    </p>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </article>
       </section>

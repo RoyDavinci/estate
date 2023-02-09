@@ -2,13 +2,22 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
-import {logger} from './utils/logger';
 import passport from 'passport';
+import {v2 as cloudinary} from 'cloudinary';
+import {logger} from './utils/logger';
 import {passportService} from './common/passport';
+import config from './config';
+// import cloudinary from 'cloudinary';
 
 dotenv.config();
 
 const app = express();
+
+cloudinary.config({
+  cloud_name: config.cloudinaryConfig.name,
+  api_key: config.cloudinaryConfig.api_key,
+  api_secret: config.cloudinaryConfig.api_secret,
+});
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));

@@ -8,7 +8,7 @@ module.exports = {
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    project: null,
+    project: './tsconfig.json',
     sourceType: 'module',
   },
 
@@ -26,7 +26,7 @@ module.exports = {
   rules: {
     'newline-before-return': 'error',
     '@typescript-eslint/no-var-requires': 0,
-    'import/no-import-module-exports': 'off',
+    'no-promise-executor-return': 'off',
     'no-var': 'error',
     semi: 'error',
     indent: ['error', 2, {SwitchCase: 1}],

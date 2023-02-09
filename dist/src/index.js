@@ -7,11 +7,19 @@ const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const helmet_1 = __importDefault(require("helmet"));
-const logger_1 = require("./utils/logger");
 const passport_1 = __importDefault(require("passport"));
+const cloudinary_1 = require("cloudinary");
+const logger_1 = require("./utils/logger");
 const passport_2 = require("./common/passport");
+const config_1 = __importDefault(require("./config"));
+// import cloudinary from 'cloudinary';
 dotenv_1.default.config();
 const app = (0, express_1.default)();
+cloudinary_1.v2.config({
+    cloud_name: config_1.default.cloudinaryConfig.name,
+    api_key: config_1.default.cloudinaryConfig.api_key,
+    api_secret: config_1.default.cloudinaryConfig.api_secret,
+});
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use((0, cors_1.default)());
