@@ -88,15 +88,26 @@ model imageUrl {
   @@index([productId])
 }
 
+model guest {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
+  address String?
+  mobile  String?
+  orderId orders[]
+}
+
 model orders {
   orderId        Int           @id @default(autoincrement())
   product_detail Json
   name           String
-  email          String
+  email          String?
   phone          String
   total_amount   String
-  address        String
+  address        String?
   userId         Int?
+  guestId        Int?
+  guests         guest?        @relation(fields: [guestId], references: [id])
   subscribers    subscribers?  @relation(fields: [userId], references: [subscriberId])
   status         Status        @default(pending)
   transactions   transaction[]

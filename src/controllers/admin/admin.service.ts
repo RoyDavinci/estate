@@ -28,5 +28,11 @@ adminRouter.patch(
   middlewares.getSingleProductValidator,
   controllers.updateSingleProduct,
 );
+adminRouter.delete(
+  '/delete-product/:id',
+  authenticateJWT,
+  middlewares.getSingleProductValidator,
+  controllers.deleteProducts,
+);
 
 export default adminRouter;
