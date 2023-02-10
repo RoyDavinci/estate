@@ -1,9 +1,8 @@
 import {UploadStream, v2 as cloudinary} from 'cloudinary';
 import streamifier from 'streamifier';
-import {Request} from 'express';
 import {logger} from '../common/logger';
 
-export const streamUpload = (req: Request) => {
+export const streamUpload = (req: Buffer) => {
   logger.info('gotten to stream upload');
 
   return new Promise((resolve, reject) => {
@@ -17,8 +16,8 @@ export const streamUpload = (req: Request) => {
         return reject(error);
       },
     );
-    if (!req.file?.buffer) return {message: 'please pass a file'};
+    if (!req) return {message: 'please pass a file'};
 
-    return streamifier.createReadStream(req.file.buffer).pipe(stream);
+    return streamifier.createReadStream(req).pipe(stream);
   });
 };

@@ -7,7 +7,10 @@ import {v2 as cloudinary} from 'cloudinary';
 import {logger} from './utils/logger';
 import {passportService} from './common/passport';
 import config from './config';
-// import cloudinary from 'cloudinary';
+import apiV1Router from './routes/routes';
+import sessionInstance from './common/session';
+import serviceNotFoundHandler from './common/serviceNotFoundHandler';
+import {createSuperAdmin} from './db/createSuperAdmin';
 
 dotenv.config();
 
@@ -23,9 +26,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());
 app.use(helmet());
+app.use(sessionInstance);
+createSuperAdmin();
 passportService(passport);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('/api/v1', apiV1Router);
+app.use(serviceNotFoundHandler);
 
 const PORT = process.env.PORT || 3900;
 

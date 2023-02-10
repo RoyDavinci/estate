@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import {PassportStatic} from 'passport';
 import passportLocal from 'passport-local';
 import passportJwt from 'passport-jwt';
@@ -6,14 +7,14 @@ import {prisma} from '../db/prisma';
 
 const options = {
   jwtFromRequest: passportJwt.ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: process.env.SECRET,
+  secretOrKey: process.env.JSON_TOKEN,
 };
 
 export const passportService = (passport: PassportStatic) => {
   passport.use(
     new passportJwt.Strategy(options, async (payload, done) => {
       const user = await prisma.users.findUnique({
-        where: {user_id: Number(payload.id)},
+        where: {user_id: Number(payload.user_id)},
       });
       if (!user) return done(null, false, {message: 'user does not exist'});
 
@@ -27,14 +28,14 @@ export const passportService = (passport: PassportStatic) => {
         usernameField: process.env.MODEL_EMAIL_FIELD,
         passwordField: process.env.MODEL_PASSWORD_FIELD,
       },
-      async (email, password, done) => {
+      async (username, password, done) => {
         try {
           const user = await prisma.users.findUnique({
-            where: {email},
+            where: {email: username},
           });
           if (!user)
             return done(null, false, {
-              message: `${email} is not a registered account`,
+              message: `${username} is not a registered account`,
             });
           const isMatch = await bcrypt.compare(password, user.password);
           if (!isMatch)
@@ -59,10 +60,10 @@ export const passportService = (passport: PassportStatic) => {
     done(null, user_id);
   });
 
-  passport.deserializeUser(async (id, done) => {
+  passport.deserializeUser(async (user_id, done) => {
     try {
       const user = await prisma.users.findUnique({
-        where: {user_id: Number(id)},
+        where: {user_id: Number(user_id)},
       });
 
       return done(null, user);

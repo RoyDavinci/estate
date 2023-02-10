@@ -21,7 +21,7 @@ export const createNewUser = async (req: Request, res: Response) => {
     const createUser = await prisma.subscribers.create({
       data: {email, firstname, lastname},
     });
-    await prisma.users.create({
+    const createAdminUser = await prisma.users.create({
       data: {
         email,
         firstname,
@@ -31,13 +31,17 @@ export const createNewUser = async (req: Request, res: Response) => {
       },
     });
     const token = jwt.sign(
-      {id: createUser.subscriberId, email},
+      {user_id: createAdminUser.user_id, email},
       `${process.env.JSON_TOKEN}`,
+      {expiresIn: config.server.tokenExpirationTime},
     );
 
-    return res
-      .status(HTTP_STATUS_CODE.ACCEPTED)
-      .json({message: 'user created', createUser, token});
+    return res.status(HTTP_STATUS_CODE.ACCEPTED).json({
+      message: 'user created',
+      createUser,
+      token,
+      validity: {expiresIn: config.server.tokenExpirationTime},
+    });
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError) {
       // The .code property can be accessed in a type-safe manner
@@ -51,9 +55,11 @@ export const createNewUser = async (req: Request, res: Response) => {
             'There is a unique constraint violation, a new user cannot be created with this email',
         });
       }
+      logger.info('known', e);
 
       return res.status(HTTP_STATUS_CODE.BAD_REQUEST).json({error: e});
     }
+    logger.info('unknown', e);
 
     return res
       .status(HTTP_STATUS_CODE.BAD_REQUEST)
@@ -62,7 +68,10 @@ export const createNewUser = async (req: Request, res: Response) => {
 };
 
 export const login = async (req: Request, res: Response) => {
-  if (!req.user) return {message: 'no user'};
+  if (!req.user)
+    return res
+      .status(400)
+      .json({message: 'please pass the passport middleware'});
   const {user_id, adminId, subscriberId} = req.user;
   try {
     let additionInfo;
@@ -87,9 +96,9 @@ export const login = async (req: Request, res: Response) => {
       role = findSubscriber.role;
     }
     const token = jwt.sign(
-      {id: user_id, email, role},
+      {user_id, email, role},
       `${process.env.JSON_TOKEN}`,
-      {expiresIn: config.serverConfig.tokenExpirationTime},
+      {expiresIn: config.server.tokenExpirationTime},
     );
     const user = await prisma.users.findUnique({where: {user_id}});
     if (!user) return res.status(400).json({message: 'user not found'});
@@ -103,7 +112,7 @@ export const login = async (req: Request, res: Response) => {
       return res.status(200).json({
         success: true,
         token,
-        validity: config.serverConfig.tokenExpirationTime,
+        validity: config.server.tokenExpirationTime,
         data: {user},
       });
     });
@@ -111,7 +120,7 @@ export const login = async (req: Request, res: Response) => {
     return res.status(200).json({
       success: true,
       token,
-      validity: config.serverConfig.tokenExpirationTime,
+      validity: config.server.tokenExpirationTime,
       data: {user: additionInfo},
     });
   } catch (e) {
@@ -294,6 +303,18 @@ export const updateUser = async (
         where: {user_id},
         data: {email, firstname, lastname, password: hashedPassword, role},
       });
+      if (findUser.subscriberId) {
+        await prisma.subscribers.update({
+          where: {subscriberId: findUser.subscriberId},
+          data: {email, firstname, lastname, role},
+        });
+      }
+      if (findUser.adminId) {
+        await prisma.admin.update({
+          where: {adminId: findUser.adminId},
+          data: {email, firstname, lastname, role},
+        });
+      }
 
       return res.status(200).json({message: 'user updated'});
     }
@@ -301,6 +322,18 @@ export const updateUser = async (
       where: {user_id},
       data: {email, firstname, lastname, role},
     });
+    if (findUser.subscriberId) {
+      await prisma.subscribers.update({
+        where: {subscriberId: findUser.subscriberId},
+        data: {email, firstname, lastname, role},
+      });
+    }
+    if (findUser.adminId) {
+      await prisma.admin.update({
+        where: {adminId: findUser.adminId},
+        data: {email, firstname, lastname, role},
+      });
+    }
 
     return res.status(200).json({message: 'user updated'});
   } catch (error) {

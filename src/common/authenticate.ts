@@ -1,6 +1,7 @@
 import {Request, Response, NextFunction} from 'express';
 import passport from 'passport';
 import STATUS_CODES from '../constants/httpCodes';
+import {logger} from './logger';
 
 export const authenticateLocal = async (
   req: Request,
@@ -11,33 +12,34 @@ export const authenticateLocal = async (
     return passport.authenticate(
       'local',
       (error: Error, user, info: {message: string}) => {
+        logger.info('na here e dey');
         if (error)
-          return next({
-            statusCode: STATUS_CODES.FORBIDDEN,
-            message: error.message,
-          });
-        if (!user)
-          return next({
-            statusCode: STATUS_CODES.NOT_FOUND,
-            message: info.message,
-          });
+          return res
+            .status(400)
+            .json({message: info.message, error: error.message});
+        logger.info(error);
+        if (!user) {
+          logger.info(user);
+
+          return res.status(400).json({message: info.message});
+        }
 
         return req.logIn(user, err => {
           if (err)
-            return next({
-              statusCode: STATUS_CODES.FORBIDDEN,
-              message: err.message,
-            });
+            return res
+              .status(400)
+              .json({message: info.message, error: err.message});
 
           return next();
         });
       },
     )(req, res, next);
   } catch (error) {
-    return next({
-      message: 'wrong username/password',
-      statusCode: STATUS_CODES.NOT_ACCEPTABLE,
-    });
+    logger.error(error);
+
+    return res
+      .status(STATUS_CODES.NOT_ACCEPTABLE)
+      .json({message: 'wrong username/password', error});
   }
 };
 
@@ -52,19 +54,20 @@ export const authenticateJWT = async (
       message: 'header token needed',
     });
 
-  return passport.authenticate('jwt', (error: Error, user, info) => {
-    if (error)
-      return next({
-        statusCode: STATUS_CODES.FORBIDDEN,
-        message: error.message,
-        data: 'error',
-      });
+  return passport.authenticate('jwt', (error: Error, user) => {
+    if (error) {
+      return res
+        .status(STATUS_CODES.FORBIDDEN)
+        .json({message: error.message, data: 'error'});
+    }
     if (!user)
-      return next({statusCode: STATUS_CODES.NOT_FOUND, message: info.message});
+      return res
+        .status(STATUS_CODES.NOT_FOUND)
+        .json({message: 'user does not exist ooh'});
 
     return req.logIn(user, err => {
       if (err)
-        return next({statusCode: STATUS_CODES.FORBIDDEN, message: err.message});
+        return res.status(STATUS_CODES.FORBIDDEN).json({message: err.message});
 
       return next();
     });
