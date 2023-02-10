@@ -15,4 +15,18 @@ adminRouter.post(
   controllers.createProducts,
 );
 
+adminRouter.get('/product', controllers.getAllProducts);
+adminRouter.get(
+  '/product/:id',
+  middlewares.getSingleProductValidator,
+  controllers.getSingleProduct,
+);
+adminRouter.patch(
+  '/update-product/:id',
+  fileUpload.array('product'),
+  authenticateJWT,
+  middlewares.getSingleProductValidator,
+  controllers.updateSingleProduct,
+);
+
 export default adminRouter;

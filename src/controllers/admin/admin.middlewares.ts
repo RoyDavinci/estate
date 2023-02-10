@@ -1,4 +1,4 @@
-import {check} from 'express-validator';
+import {check, param} from 'express-validator';
 import {validationErrorHandler} from '../../utils/validationErrorHandler';
 
 export const createProductValidation = [
@@ -29,4 +29,12 @@ export const createProductValidation = [
     .isString()
     .withMessage('description must be string'),
   validationErrorHandler,
+];
+
+export const getSingleProductValidator = [
+  param('id')
+    .isString()
+    .withMessage('id must be string')
+    .notEmpty()
+    .withMessage('id is requiredd'),
 ];

@@ -14,6 +14,15 @@ const envSchema = joi
     SUPER_ADMIN_ROLE: joi.string().required(),
     JSON_TOKEN: joi.string().required(),
     TOKENEXPIRATIONTIME: joi.string().required(),
+    PAYSTACK_SECRET: joi.string().required(),
+    PAYSTACK_PUBLIC: joi.string().required(),
+    FRONTEND_GUEST_HOST: joi.string().required(),
+    FRONTEND_ADMIN_HOST: joi.string().required(),
+    WELCOME_EMAIL_HEADER: joi.string().required(),
+    DELETE_ACCOUNT_CODE: joi.string().required(),
+    SUSPEND_ACCOUNT_CODE: joi.string().required(),
+    BLOCK_ACCOUNT_CODE: joi.string().required(),
+    ACTIVE_ACCOUNT_CODE: joi.string().required(),
   })
   .unknown();
 
@@ -39,6 +48,15 @@ export const serverConfig = {
     SUPER_ADMIN_ROLE: envVars.SUPER_ADMIN_ROLE,
     JSON_TOKEN: envVars.JSON_TOKEN,
     tokenExpirationTime: envVars.TOKENEXPIRATIONTIME,
+    PAYSTACK_SECRET_KEY: envVars.PAYSTACK_SECRET,
+    PAYSTACK_PUBLIC_KEY: envVars.PAYSTACK_PUBLIC,
+    FRONTEND_GUEST_HOST: envVars.FRONTEND_GUEST_HOST,
+    FRONTEND_ADMIN_HOST: envVars.FRONTEND_ADMIN_HOST,
+    WELCOME_EMAIL_HEADER: envVars.WELCOME_EMAIL_HEADER,
+    DELETE_ACCOUNT_CODE: envVars.DELETE_ACCOUNT_CODE,
+    SUSPEND_ACCOUNT_CODE: envVars.SUSPEND_ACCOUNT_CODE,
+    BLOCK_ACCOUNT_CODE: envVars.BLOCK_ACCOUNT_CODE,
+    ACTIVE_ACCOUNT_CODE: envVars.ACTIVE_ACCOUNT_CODE,
   },
 };
 
