@@ -103,3 +103,15 @@ export const createOrders = async (req: Request, res: Response) => {
       .json({error: e, message: 'an error occured on creating a product'});
   }
 };
+
+export const getAllOrders = async (req: Request, res: Response) => {
+  try {
+    const getOrders = await prisma.orders.findMany({});
+
+    return res.status(200).json({message: 'order gotten', order: getOrders});
+  } catch (error) {
+    logger.info(error);
+
+    return res.status(400).json({message: 'an error occuredd', error});
+  }
+};

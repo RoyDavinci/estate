@@ -104,3 +104,33 @@ export const authenticateAdminJWT = async (
     });
   })(req, res, next);
 };
+
+export const optionalAuthenticate = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  if (req.headers.authorization) {
+    return passport.authenticate('jwt', (error: Error, user, info) => {
+      if (error)
+        return res
+          .status(STATUS_CODES.INSUFFICIENT_STORAGE)
+          .json({message: error.message, data: 'error'});
+      if (!user)
+        return res
+          .status(STATUS_CODES.INSUFFICIENT_STORAGE)
+          .json({message: info.message});
+
+      return req.logIn(user, err => {
+        if (err)
+          return res
+            .status(STATUS_CODES.INSUFFICIENT_STORAGE)
+            .json({message: err.message});
+
+        return next();
+      });
+    })(req, res, next);
+  }
+
+  return next();
+};
