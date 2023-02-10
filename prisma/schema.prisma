@@ -123,7 +123,6 @@ model transaction {
   phone                 String
   email                 String
   total_amount          String
-  payment_type          String
   biller_Reference      String
   transaction_reference String
   channel               String?
