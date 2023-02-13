@@ -1,13 +1,9 @@
 import React from 'react';
-import {Footer, FormModule, Hero, Section} from '../../components';
 
 export const Home = () => {
   return (
     <div>
-      <Hero />
-      <Section />
-      <FormModule />
-      <Footer />
+      <h1>welcome</h1>
     </div>
   );
 };
