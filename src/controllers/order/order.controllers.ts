@@ -115,3 +115,45 @@ export const getAllOrders = async (req: Request, res: Response) => {
     return res.status(400).json({message: 'an error occuredd', error});
   }
 };
+
+export const getSingleOrder = async (req: Request, res: Response) => {
+  const {id} = req.params;
+  try {
+    const getOrder = await prisma.orders.findUnique({
+      where: {orderId: Number(id)},
+    });
+    if (!getOrder) return res.status(400).json({message: 'no such order'});
+
+    return res.status(200).json({message: 'order gotten', getOrder});
+  } catch (error) {
+    logger.info(error);
+
+    return res.status(400).json({message: 'an error occuredd', error});
+  }
+};
+
+export const deleteOrder = async (req: Request, res: Response) => {
+  const {id} = req.params;
+  try {
+    if (!req.user)
+      return res.status(400).json({message: 'authentication needed'});
+    const findOrder = await prisma.orders.findUnique({
+      where: {orderId: Number(id)},
+    });
+    if (!findOrder)
+      return res.status(400).json({message: 'order does not exist'});
+    if (req.user.role === 'Super_Admin') {
+      await prisma.orders.delete({where: {orderId: Number(id)}});
+
+      return res.status(400).json({message: 'order deleted'});
+    }
+
+    return res
+      .status(400)
+      .json({message: 'only super admin can delete orders'});
+  } catch (error) {
+    logger.info(error);
+
+    return res.status(400).json({message: 'an error occuredd', error});
+  }
+};

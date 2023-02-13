@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import {Link} from 'react-router-dom';
 import FirstImage from '../../public/images/unsplash1.png';
 import SecondImage from '../../public/images/Image2.png';
 import ThirdImage from '../../public/images/unsplash.png';
@@ -30,12 +29,12 @@ export const FormModule = () => {
       <section className={formModuleStyles.sectionContiner}>
         <article className={formModuleStyles.grid}>
           <div>
-            <Image src={FirstImage} alt="image" />
-            <Image src={SecondImage} alt="secondimage" />
+            <img src={FirstImage} alt="" />
+            <img src={SecondImage} alt="secondimage" />
           </div>
           <div>
-            <Image src={ThirdImage} alt="thirdimage" />
-            <Image src={FourthImage} alt="fourthimage" />
+            <img src={ThirdImage} alt="thirdimage" />
+            <img src={FourthImage} alt="fourthimage" />
           </div>
         </article>
         <article>
@@ -49,7 +48,7 @@ export const FormModule = () => {
             that you most desire.
           </p>
           <div className={formModuleStyles.link}>
-            <Link href="/">Search Rooms</Link>
+            <Link to="/">Search Rooms</Link>
           </div>
         </article>
       </section>
@@ -64,9 +63,9 @@ export const FormModule = () => {
             <div
               style={{display: 'flex'}}
               className={formModuleStyles.divContainer}>
-              <Image
+              <img
                 src={data[detail].userImg}
-                alt="user-image"
+                alt="user"
                 className={formModuleStyles.userImg}
               />
               <div>
@@ -78,7 +77,7 @@ export const FormModule = () => {
             </div>
           </div>
         </article>
-        <Image
+        <img
           src={data[detail].image}
           alt=""
           className={formModuleStyles.imageContainer}
