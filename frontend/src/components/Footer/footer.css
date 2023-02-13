@@ -1,0 +1,40 @@
+.mainFooterContainer {
+  padding: 80px;
+}
+.mainFooterContainer__footerSectionContainer {
+  padding: 30px;
+}
+.mainFooterContainer__footerArticleContainer {
+  padding: 20px;
+}
+.mainFooterContainer__footerSectionContainer article {
+  display: flex;
+  justify-content: space-between;
+}
+.mainFooterContainer__footerPara {
+  display: flex;
+  justify-content: space-between;
+}
+.mainFooterContainer__footerPara i {
+  margin-right: 5px;
+}
+.mainFooterContainer__footerSocialMedia i {
+  margin-right: 10px;
+}
+.mainFooterContainer__footerSectionContainer article ul {
+  display: inline-flex;
+  padding: 0;
+}
+.mainFooterContainer__footerSectionContainer article ul li {
+  margin-right: 10px;
+}
+.mainFooterContainer__footerSectionContainer i {
+  color: #f4511e;
+}
+.mainFooterContainer__mainFooterContainer {
+  margin: 20px 0px;
+}
+.mainFooterContainer__redBorder {
+  height: 2px;
+  background-color: #f4511e;
+}

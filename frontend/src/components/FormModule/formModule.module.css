@@ -1,23 +1,23 @@
-.container {
+.formModuleStyles__container {
   margin: 20px 0px;
 }
-.image {
+.formModuleStyles__image {
   width: auto;
   height: auto;
 }
-.grid {
+.formModuleStyles__grid {
   display: grid;
   grid-template-rows: 1fr 1fr;
 }
-.grid div img {
+.formModuleStyles__grid div img {
   margin-right: 20px;
 }
-.sectionContiner {
+.formModuleStyles__sectionContiner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
 }
-.link {
+.formModuleStyles__link {
   width: 185px;
   height: 63px;
   background-color: #f4511e;
@@ -28,35 +28,35 @@
   text-align: center;
   color: #fff;
 }
-.link a {
+.formModuleStyles__link a {
   color: #fff;
 }
-.imageContainer {
+.formModuleStyles__imageContainer {
   width: 600px;
   height: 400px;
   object-fit: cover;
 }
-.secondSection {
+.formModuleStyles__secondSection {
   display: flex;
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   margin: 30px 0px;
 }
-.secondSection article,
-.secondSection .imageContainer {
+.formModuleStyles__secondSection article,
+.formModuleStyles__secondSection .formModuleStyles__imageContainer {
   flex: 1;
 }
-.secondSection article {
+.formModuleStyles__secondSection article {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 10px;
 }
-.divSecondSection .divContainer,
-.paraContainer {
+.formModuleStyles__divSecondSection .formModuleStyles__divContainer,
+.formModuleStyles__paraContainer {
   margin-left: 150px;
 }
-.userImg {
+.formModuleStyles__userImg {
   width: 80px;
   height: 80px;
   border-radius: 50%;

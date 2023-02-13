@@ -12,6 +12,13 @@
     "allowJs": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", ".eslintrc.js", "source-path/**/*.json", "client"],
+  "include": [
+    "src",
+    ".eslintrc.js",
+    "source-path/**/*.json",
+    "client",
+    "frontend/src/helpers",
+    "frontend/src/components"
+  ],
   "exclude": ["node_modules", "dist"]
 }

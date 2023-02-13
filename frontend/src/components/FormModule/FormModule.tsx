@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import FirstImage from '../../public/images/unsplash1.png';
-import SecondImage from '../../public/images/Image2.png';
-import ThirdImage from '../../public/images/unsplash.png';
-import FourthImage from '../../public/images/unsplash2.png';
-import formModuleStyles from './formModule.module.css';
+import FirstImage from '../../images/unsplash1.png';
+import SecondImage from '../../images/Image2.png';
+import ThirdImage from '../../images/unsplash.png';
+import FourthImage from '../../images/unsplash2.png';
+import './formModule.module.css';
 import {data} from '../../helpers/index';
 
 export const FormModule = () => {
@@ -25,9 +25,9 @@ export const FormModule = () => {
   }, [detail]);
 
   return (
-    <main className={formModuleStyles.container}>
-      <section className={formModuleStyles.sectionContiner}>
-        <article className={formModuleStyles.grid}>
+    <main className="formModuleStyles__container">
+      <section className="formModuleStyles__sectionContiner">
+        <article className="grid">
           <div>
             <img src={FirstImage} alt="" />
             <img src={SecondImage} alt="secondimage" />
@@ -47,26 +47,26 @@ export const FormModule = () => {
             selective roommate finder option. We provide you the flexibility
             that you most desire.
           </p>
-          <div className={formModuleStyles.link}>
+          <div className="formModuleStyles__link">
             <Link to="/">Search Rooms</Link>
           </div>
         </article>
       </section>
-      <section className={formModuleStyles.secondSection}>
+      <section className="formModuleStyles__secondSection">
         <article style={{background: 'rgba(244, 81, 30, 0.07)'}}>
-          <div className={formModuleStyles.divSecondSection}>
+          <div className="formModuleStyles__divSecondSection">
             <p
               style={{lineHeight: '1.8rem'}}
-              className={formModuleStyles.paraContainer}>
+              className="formModuleStyles__paraContainer">
               {data[detail].text}
             </p>
             <div
               style={{display: 'flex'}}
-              className={formModuleStyles.divContainer}>
+              className="formModuleStyles__divContainer">
               <img
                 src={data[detail].userImg}
                 alt="user"
-                className={formModuleStyles.userImg}
+                className="formModuleStyles__userImg"
               />
               <div>
                 <p style={{fontWeight: '700', color: '#F4511E'}}>
@@ -80,7 +80,7 @@ export const FormModule = () => {
         <img
           src={data[detail].image}
           alt=""
-          className={formModuleStyles.imageContainer}
+          className="formModuleStyles__imageContainer"
         />
       </section>
     </main>

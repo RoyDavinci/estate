@@ -1,17 +1,16 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import Image from 'next/image';
 import {Header} from '../Header/Header';
-import styles from './hero.module.css';
-import Map from '../../public/images/Rectangle 1.png';
+import Map from '../../images/Rectangle 1.png';
+import './hero.css';
 
 export const Hero = () => (
-  <div className={styles.hero__Container}>
+  <div className="hero__Container">
     <Header />
-    <section className={styles.section_Container}>
+    <section className="hero__Container__section_Container">
       <h1>The most affortable place to stay in Lagos</h1>
-      <div className={styles.divContainer}>
-        <Image src={Map} alt="Lagos Map" />
+      <div className="hero__Container__divContainer">
+        <img src={Map} alt="Lagos Map" />
         <div>
           <form action="">
             <select name="type" id="">

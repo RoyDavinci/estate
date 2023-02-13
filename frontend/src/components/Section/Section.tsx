@@ -1,13 +1,12 @@
 import React from 'react';
-import Image from 'next/image';
-import sectionStyles from './section.module.css';
-import Images from '../../public/images/unsplash_oGmf8o53LeE.png';
-import Image1 from '../../public/images/unsplash_2d4lAQAlbDA.png';
-import Image2 from '../../public/images/unsplash_Eh_It1hg4Hs.png';
-import Image3 from '../../public/images/unsplash_KQgrVfR3r74.png';
-import Image4 from '../../public/images/unsplash_T6d96Qrb5MY.png';
-import Image5 from '../../public/images/unsplash_uDtC-1NLEzU.png';
-import Image6 from '../../public/images/unsplash_UV81E0oXXWQ.png';
+import './section.css';
+import Images from '../../images/unsplash_oGmf8o53LeE.png';
+import Image1 from '../../images/unsplash_2d4lAQAlbDA.png';
+import Image2 from '../../images/unsplash_Eh_It1hg4Hs.png';
+import Image3 from '../../images/unsplash_KQgrVfR3r74.png';
+import Image4 from '../../images/unsplash_T6d96Qrb5MY.png';
+import Image5 from '../../images/unsplash_uDtC-1NLEzU.png';
+import Image6 from '../../images/unsplash_UV81E0oXXWQ.png';
 
 export const Section = () => {
   const properties = [
@@ -56,13 +55,13 @@ export const Section = () => {
   ];
 
   return (
-    <main className={sectionStyles.section_container}>
-      <section className={sectionStyles.section_container__first}>
+    <main className="section_container">
+      <section className="section_container__section_container__first">
         <h1>Minimum cost of living takes care of everything</h1>
-        <article className={sectionStyles.section___articleFirstcontainer}>
-          <Image src={Images} alt="low-cost-home-image" />
+        <article className="section_container__section___articleFirstcontainer">
+          <img src={Images} alt="low-cost-home" />
           <article>
-            <div>
+            <div className="text-center">
               <div>
                 <i className="fa-solid fa-dollar-sign"></i>
               </div>
@@ -101,31 +100,31 @@ export const Section = () => {
           </article>
         </article>
       </section>
-      <section className={sectionStyles.section_container__Second}>
-        <article className={sectionStyles.section___articleSecondcontainer}>
-          <div className={sectionStyles.section___articleSecondcontainer__div}>
+      <section className="section_container__section_container__Second">
+        <article className="section_container__section___articleSecondcontainer">
+          <div className="section_container__section___articleSecondcontainer__div">
             <h2>List all properties</h2>
             <button>View all property</button>
           </div>
           <div
-            className={
-              sectionStyles.section___articleSecondcontainer__div__Second
-            }
-          >
+            className="
+              section_container__section___articleSecondcontainer__div__Second
+            ">
             {properties.map(item => (
               <div
                 key={item.id}
-                className={sectionStyles.section__article__itemContainer}
-              >
-                <Image src={item.image} alt={item.name} />
-                <h2 className={sectionStyles.stylingDetails}>{item.name}</h2>
-                <p className={sectionStyles.stylingDetails}>
+                className="section_container__section__article__itemContainer">
+                <img src={item.image} alt={item.name} />
+                <h2 className="section_container__stylingDetails">
+                  {item.name}
+                </h2>
+                <p className="section_container__stylingDetails">
                   {item.description}
                 </p>
-                <h2 className={sectionStyles.stylingDetailsPrice}>
+                <h2 className="section_container__stylingDetailsPrice">
                   {item.price}
                 </h2>
-                <div className={sectionStyles.bookmarkContainer}>
+                <div className="section_container__bookmarkContainer">
                   <div>
                     <p>
                       <i className="fa-solid fa-car"></i>

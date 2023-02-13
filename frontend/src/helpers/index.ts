@@ -1,9 +1,9 @@
-import Image from '../public/images/cover.jpg';
-import Image1 from '../public/images/pexels-pixabay-164522.jpg';
-import Image2 from '../public/images/pexels-pixabay-221540.jpg';
-import userImage1 from '../public/images/pexels-anna-shvets-5325104.jpg';
-import userImage2 from '../public/images/pexels-george-milton-6953851.jpg';
-import userImage3 from '../public/images/pexels-binyamin-mellish-186077.jpg';
+import Image from '../images/cover.jpg';
+import Image1 from '../images/pexels-pixabay-164522.jpg';
+import Image2 from '../images/pexels-pixabay-221540.jpg';
+import userImage1 from '../images/pexels-anna-shvets-5325104.jpg';
+import userImage2 from '../images/pexels-george-milton-6953851.jpg';
+import userImage3 from '../images/pexels-binyamin-mellish-186077.jpg';
 
 export const data = [
   {

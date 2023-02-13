@@ -1,13 +1,13 @@
-import Link from 'next/link';
+import {Link} from 'react-router-dom';
 import React from 'react';
-import styles from './footer.module.css';
+import './footer.css';
 
 export const Footer = () => (
   <footer>
-    <main className={styles.mainFooterContainer}>
-      <div className={styles.redBorder}></div>
-      <section className={styles.footerSectionContainer}>
-        <article className={styles.footerArticleContainer}>
+    <main className="mainFooterContainer">
+      <div className="mainFooterContainer__redBorder"></div>
+      <section className="mainFooterContainer__footerSectionContainer">
+        <article className="mainFooterContainer__footerArticleContainer">
           <div>
             <h1>Logo</h1>
           </div>
@@ -16,7 +16,7 @@ export const Footer = () => (
               <i className="fa-solid fa-location-dot"></i> 345 Faulconer Drive,
               Suite 4 • Charlottesville, CA, 12345
             </p>
-            <p className={styles.footerPara}>
+            <p className="mainFooterContainer__footerPara">
               <span>
                 <i className="fa-solid fa-phone"></i> (123) 456-7890
               </span>
@@ -24,7 +24,7 @@ export const Footer = () => (
                 <i className="fa-solid fa-fax"></i>(123) 456-7890
               </span>
             </p>
-            <p className={styles.footerSocialMedia}>
+            <p className="mainFooterContainer__footerSocialMedia">
               Social Media <i className="fa-brands fa-facebook-f"></i>
               <i className="fa-brands fa-twitter"></i>
               <i className="fa-brands fa-instagram"></i>
@@ -35,22 +35,22 @@ export const Footer = () => (
             </p>
           </div>
         </article>
-        <article className={styles.footerSecondArticleContainer}>
+        <article className="mainFooterContainer__footerSecondArticleContainer">
           <ul>
             <li>
-              <Link href="/">ABOUT US</Link>
+              <Link to="/">ABOUT US</Link>
             </li>
             <li>
-              <Link href="/">CONTACT US</Link>
+              <Link to="/">CONTACT US</Link>
             </li>
             <li>
-              <Link href="/">HELP</Link>
+              <Link to="/">HELP</Link>
             </li>
             <li>
-              <Link href="/">PRIVACY POLICY</Link>
+              <Link to="/">PRIVACY POLICY</Link>
             </li>
             <li>
-              <Link href="/">DISCLAIMER</Link>
+              <Link to="/">DISCLAIMER</Link>
             </li>
           </ul>
           <p>Copyright © 2020 Minimumlivingcost. All rights reserved</p>

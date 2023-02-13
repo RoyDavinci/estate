@@ -1,10 +1,10 @@
-.listStyles li a {
+.navContainer__listStyles li a {
   color: white;
   display: inline-flex;
   margin: 0px 30px;
   font-size: 16px;
 }
-.listStyles {
+.navContainer__listStyles {
   display: flex;
   align-items: center;
 }
