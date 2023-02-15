@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import {Prisma, users} from '@prisma/client';
 import {prisma} from '../../db/prisma';
-import {logger} from '../../common/logger';
+import {logger} from '../../utils/logger';
 import config from '../../config';
 import HTTP_STATUS_CODE from '../../constants/httpCodes';
 

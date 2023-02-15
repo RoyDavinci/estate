@@ -1,0 +1,29 @@
+.recent__mainContainer section {
+  text-align: center;
+}
+.recent__divContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.recent__itemContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  gap: 20px;
+}
+.recent__itemContainer article {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+.recent__itemContainer article img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+.recent__itemContainer article div {
+  display: flex;
+  line-height: 3rem;
+  align-items: center;
+}

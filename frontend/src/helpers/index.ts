@@ -1,33 +1,27 @@
 import Image from '../images/cover.jpg';
 import Image1 from '../images/pexels-pixabay-164522.jpg';
 import Image2 from '../images/pexels-pixabay-221540.jpg';
-import userImage1 from '../images/pexels-anna-shvets-5325104.jpg';
-import userImage2 from '../images/pexels-george-milton-6953851.jpg';
-import userImage3 from '../images/pexels-binyamin-mellish-186077.jpg';
 
 export const data = [
   {
     id: 1,
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum nisl et nunc facilisis, a commodo eros mollis. Nunc vel pellentesque est. Curabitur at odio sit amet libero vulputate efficitur ac nec justo. Nulla vitae mauris quam. Nulla quam massa, faucibus id pretium ac, mattis eu velit. Donec sed risus a lacus fringilla finibus.',
-    name: 'Harry Wilson',
-    role: 'Product Manager',
+    name: 'Villa v2.0',
     image: Image,
-    userImg: userImage1,
+    price: '$5.24k',
+    place: 'Celina Delaware',
   },
   {
     id: 2,
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum nisl et nunc facilisis, a commodo eros mollis. Nunc vel pellentesque est. Curabitur at odio sit amet libero vulputate efficitur ac nec justo. Nulla vitae mauris quam. Nulla quam massa, faucibus id pretium ac, mattis eu velit. Donec sed risus a lacus fringilla finibus.',
-    name: 'Davinci Code',
-    role: 'Project Manager',
+    name: 'Decorated Home',
     image: Image1,
-    userImg: userImage2,
+    price: '$5.24k',
+    place: 'Mesa NEw Jersey',
   },
   {
     id: 3,
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum nisl et nunc facilisis, a commodo eros mollis. Nunc vel pellentesque est. Curabitur at odio sit amet libero vulputate efficitur ac nec justo. Nulla vitae mauris quam. Nulla quam massa, faucibus id pretium ac, mattis eu velit. Donec sed risus a lacus fringilla finibus.',
-    name: 'Cyril Amoo',
-    role: 'Software Developer',
+    name: 'Royal Home',
     image: Image2,
-    userImg: userImage3,
+    price: '$5.24k',
+    place: 'Richardson California',
   },
 ];

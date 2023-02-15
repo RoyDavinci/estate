@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {NextFunction, Request, Response} from 'express';
 import {v4 as uuid} from 'uuid';
-import {logger} from '../../common/logger';
+import {logger} from '../../utils/logger';
 import {sendEmail} from '../../common/sendMail';
 import config from '../../config';
 import HTTP_STATUS_CODE from '../../constants/httpCodes';

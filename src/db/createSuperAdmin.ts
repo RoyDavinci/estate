@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import {prisma} from './prisma';
 import config from '../config';
-import {logger} from '../common/logger';
+import {logger} from '../utils/logger';
 
 export const createSuperAdmin = async () => {
   try {

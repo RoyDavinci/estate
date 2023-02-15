@@ -1,0 +1,26 @@
+.headerContainer nav {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.headerContainer nav ul {
+  display: flex;
+  align-items: center;
+}
+.headerContainer nav ul li {
+  margin: 0px 10px;
+}
+.headerContainer nav ul li div {
+  border: 0.5px solid #ccc;
+  border-radius: 10px;
+  padding: 3px 8px;
+  background-color: #f1f3f4;
+}
+.headerContainer nav ul li div input {
+  background-color: #f1f3f4;
+}
+.headerContainer nav ul li div i {
+  font-size: small;
+  font-weight: 600;
+}
+/* #D96AB1 */

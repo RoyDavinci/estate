@@ -1,7 +1,7 @@
 /* eslint-disable no-promise-executor-return */
 import nodemailer from 'nodemailer';
 import config from '../config';
-import {logger} from './logger';
+import {logger} from '../utils/logger';
 
 const transporter = nodemailer.createTransport({...config.mail});
 

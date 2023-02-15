@@ -1,7 +1,7 @@
 import {Request, Response, NextFunction} from 'express';
 import passport from 'passport';
 import STATUS_CODES from '../constants/httpCodes';
-import {logger} from './logger';
+import {logger} from '../utils/logger';
 
 export const authenticateLocal = async (
   req: Request,

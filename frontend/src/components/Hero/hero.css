@@ -1,0 +1,81 @@
+.main__heroContainer {
+  background-color: #dde1e7;
+  min-height: 100vh;
+}
+.div__heroContainer {
+  margin: 0px 100px;
+}
+.heroContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.heroContainer__firstItem {
+  width: 40%;
+  color: #1b225e;
+}
+.heroContainer__firstItem h1 {
+  font-size: 45px;
+  line-height: 3rem;
+}
+.heroContainer__firstItem p {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+.heroContainer__firstItem p span a {
+  text-decoration: underline;
+  color: #1b225e;
+}
+.heroContainer__secondItem {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 12px;
+  border-radius: 10px;
+  line-height: 2rem;
+}
+.heroContainer__secondItem button {
+  background-color: #eea37c;
+  color: #474452;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: medium;
+}
+.heroContainer__secondItem select,
+.heroContainer__secondItem button {
+  display: block;
+  width: 100%;
+  margin: 10px 0px;
+}
+.heroContainer__secondItem select {
+  padding: 3px;
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+}
+.heroContainer__secondItem h2 {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 10px 0px;
+}
+.heroContainer__secondItem p {
+  font-size: 11px;
+  color: #9d9ea8;
+}
+.div__heroContainer section {
+  margin: 10% 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
+}
+.div__heroContainer section article h3 {
+  font-weight: 700;
+  margin: 10px 0px;
+}
+.div__heroContainer section article p {
+  color: #1b225e;
+}
+.div__heroContainer section article button {
+  padding: 5px 15px;
+  border-radius: 5px;
+  text-align: center;
+  border: 0.5px solid #ccc;
+}

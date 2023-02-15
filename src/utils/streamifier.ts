@@ -1,6 +1,6 @@
 import {UploadStream, v2 as cloudinary} from 'cloudinary';
 import streamifier from 'streamifier';
-import {logger} from '../common/logger';
+import {logger} from './logger';
 
 export const streamUpload = (req: Buffer) => {
   logger.info('gotten to stream upload');
